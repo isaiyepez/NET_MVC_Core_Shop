@@ -12,6 +12,8 @@ namespace Shop.Web2.Data
 
         public string Name { get; set; }
 
+        //Decorator C=CURRENCY shows system value for currency
+        //Apply format in edith mode means that it is only applied for showing
         [DisplayFormat(DataFormatString = "{0:C2}", ApplyFormatInEditMode = false)]
         public decimal Price { get; set; }
 
@@ -27,6 +29,7 @@ namespace Shop.Web2.Data
         [Display(Name = "Is Availabe?")]
         public bool IsAvailabe { get; set; }
 
+        //N2 will show number not currency, no $ symbol
         [DisplayFormat(DataFormatString = "{0:N2}", ApplyFormatInEditMode = false)]
         public double Stock { get; set; }
     }
