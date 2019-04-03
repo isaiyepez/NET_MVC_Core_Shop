@@ -26,6 +26,12 @@ namespace Shop.Web2 {
                 cfg.UseSqlServer (this.Configuration.GetConnectionString ("DefaultConnection"));
             });
 
+            //ADDTRANSIENT tiene un ciclo de vida corto, se usa y se destruye
+            services.AddTransient<SeedDb>();
+
+            //ADDSCOPE la ineccion se mantiene activa
+            services.AddScoped<IRepository, Repository>();
+
             services.Configure<CookiePolicyOptions> (options => {
                 // This lambda determines whether user consent for non-essential cookies is needed for a given request.
                 options.CheckConsentNeeded = context => true;
