@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
+using Shop.Web2.Data.Entities;
 
 namespace Shop.Web2.Data
 {
-    public class Product
+    public class Product : IEntity
     {
         public int Id { get; set; }
 
@@ -34,5 +35,10 @@ namespace Shop.Web2.Data
         //N2 will show number not currency, no $ symbol
         [DisplayFormat(DataFormatString = "{0:N2}", ApplyFormatInEditMode = false)]
         public double Stock { get; set; }
+
+        //To create a relationship between USER and PRODUCT.
+        //In a one-to many relationship, it is enough to quote the "one" object 
+        //to the "many" object as following;
+        public User User { get; set; }
     }
 }
